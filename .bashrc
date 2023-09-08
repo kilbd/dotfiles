@@ -119,7 +119,9 @@ fi
 
 ### My additions ###
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export EDITOR="vi"
+
+#eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 alias ls="exa -la"
 alias cat="bat --paging=never"
