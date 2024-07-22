@@ -125,4 +125,5 @@ export EDITOR="vi"
 
 alias ls="exa -la"
 alias cat="bat --paging=never"
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
