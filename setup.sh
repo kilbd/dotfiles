@@ -26,7 +26,7 @@ if dotfiles checkout; then
 else
   echo "Backing up pre-existing dotfiles.";
   mkdir -p .dotfiles-backup
-  dotfiles checkout 2>&1 | grep -E "\s+\." | awk "{'print $1'}" | xargs -I{} mv {} .dotfiles-backup/{}
+  dotfiles checkout 2>&1 | grep -E "\s+\." | awk '{print $1}' | xargs -I{} mv {} .dotfiles-backup/{}
 fi
 set -e
 
