@@ -123,7 +123,6 @@ export EDITOR="vi"
 
 #eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-alias ls="exa -la"
+alias ls="eza -la"
 alias cat="bat --paging=never"
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
