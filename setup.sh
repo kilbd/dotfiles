@@ -1,9 +1,9 @@
 #!/bin/env bash
 set -e
 
-add-apt-repository ppa:neovim-ppa/stable
-apt-get update
-apt install -y libssl-dev openssl pkg-config build-essential git curl wget neovim
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt-get update
+sudo apt install -y libssl-dev openssl pkg-config build-essential git curl wget neovim
 
 # Install Rust(up)
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
