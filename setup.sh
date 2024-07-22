@@ -16,7 +16,7 @@ cargo install --locked --bin jj jj-cli
 # Clone dotfiles as a bare repository
 git clone --bare https://github.com/kilbd/dotfiles.git "$HOME/.dotfiles"
 function dotfiles {
-   /usr/bin/git --git-dir="$HOME/.dotfiles" --work-tree="$HOME $@"
+   /usr/bin/git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
 }
 
 set +e
