@@ -7,8 +7,8 @@ link_dotfile () {
   target="$HOME/$relative"
   backup="$HOME/dotfiles-backup"
   if [ -e "$target" ]; then
-    # copy dotfile to backup if it's a real file, otherwise delete
-    if [ -f "$target" ]; then
+    # copy dotfile to backup if it's a real file (not link), otherwise delete
+    if [ -f "$target" ] && [ ! -L "$target" ]; then
       backup_target="$backup/$relative"
       backup_dir="$(dirname "$backup_target")"
       if [ ! -d "$backup_dir" ]; then
