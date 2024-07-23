@@ -25,5 +25,6 @@ link_dotfile () {
 
 export -f link_dotfile
 
-find "$HOME/dotfiles" -type f -not -path '*/\.git/*' -not -path '*/setup/*' -print0 | xargs -0 -I {} bash -c 'link_dotfile "$@"' _ {}
+find "$HOME/dotfiles" -type f -not -path '*/\.git/*' -not -path '*/setup/*' \
+  -not -path '*README*' -print0 | xargs -0 -I {} bash -c 'link_dotfile "$@"' _ {}
 
