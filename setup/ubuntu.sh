@@ -11,8 +11,11 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --quiet
 . "$HOME/.cargo/env"
 
 # Install Rust tools
-cargo install bat difftastic eza ripgrep zellij
+cargo install bat difftastic eza nu ripgrep zellij
 cargo install --locked --bin jj jj-cli
+
+# Install Node (nvm)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
 # Install Docker
 sudo install -m 0755 -d /etc/apt/keyrings
