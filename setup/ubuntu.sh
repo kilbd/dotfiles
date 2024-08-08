@@ -1,10 +1,9 @@
 #!/bin/env bash
 set -e
 
-sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get update
 sudo apt install -y libssl-dev openssl ca-certificates pkg-config \
-  build-essential git curl wget neovim
+  build-essential git curl wget
 
 # Install Rust(up)
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --quiet
@@ -13,6 +12,20 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --quiet
 # Install Rust tools
 cargo install bat difftastic eza nu ripgrep zellij
 cargo install --locked --bin jj jj-cli
+
+# Install Go and Neovim binaries
+cd /tmp
+go_version="$(curl -s https://go.dev/VERSION?m=text | head -n1).linux-amd64.tar.gz"
+wget -q "https://go.dev/dl/$go_version"
+rm -rf /usr/local/go && sudo tar -C /usr/local -xzf "$go_version"
+
+wget -O nvim.tar.gz "https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz"
+tar -xvzf nvim.tar.gz
+sudo install nvim-linux64/bin/nvim /usr/local/bin/nvim
+sudo cp -R nvim-linux64/lib /usr/local/
+sudo cp -R nvim-linux64/share /usr/local/
+rm -rf nvim-linux64 nvim.tar.gz
+cd -
 
 # Install Node (nvm)
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash

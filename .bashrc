@@ -115,13 +115,15 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
 . "$HOME/.cargo/env"
+
+# Add Go to PATH
+export PATH=$PATH:/usr/local/go/bin
 
 ### My additions ###
 
 export EDITOR="vi"
-
-#eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 alias ls="eza -la"
 alias cat="bat --paging=never"
