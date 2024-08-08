@@ -20,6 +20,10 @@ link_dotfile () {
     fi
   fi
   echo "Creating link for $relative."
+  target_dir="$(dirname "$target")"
+  if [ ! -d "$target_dir" ]; then
+    mkdir -p "$target_dir"
+  fi
   ln -s "$1" "$target"
 }
 
