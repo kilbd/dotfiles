@@ -44,10 +44,12 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 sudo usermod -aG docker ${USER}
 
 # Clone full dotfiles repo if missing
+set +e
 git ls-remote -q "$HOME/dotfiles" > /dev/null 2>&1
 if [[ "$?" -ne 0 ]]; then
   git clone https://github.com/kilbd/dotfiles.git "$HOME/dotfiles"
 fi
+set -e
 
 echo 'Linking dotfiles...'
 source "$HOME/dotfiles/setup/link.sh"
