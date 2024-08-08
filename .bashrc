@@ -128,3 +128,18 @@ export EDITOR="vi"
 alias ls="eza -la"
 alias cat="bat --paging=never"
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# ssh-agent to make jj happy
+function jjssh() {
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/github_rsa
+}
+
+export PATH=$PATH:/usr/local/go/bin
+
+#jjssh
+
