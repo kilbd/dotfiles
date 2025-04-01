@@ -404,7 +404,7 @@ local on_attach = function(client, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 
   -- Turn on inlay hints
-  if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+  if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
     nmap('<leader>th', function()
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
     end, '[T]oggle Inlay [H]ints')
@@ -418,7 +418,17 @@ end
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
   -- clangd = {},
-  -- gopls = {},
+  gopls = {
+    hints = {
+      assignVariableTypes = true,
+      compositeLiteralFields = true,
+      compositeLiteralTypes = true,
+      constantValues = true,
+      functionTypeParameters = true,
+      parameterNames = true,
+      rangeVariableTypes = true,
+    },
+  },
   pyright = {},
   rust_analyzer = {},
   tsserver = { settings = { documentFormatting = true } },

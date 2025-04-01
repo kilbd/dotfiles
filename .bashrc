@@ -139,7 +139,11 @@ function jjssh() {
     ssh-add ~/.ssh/github_rsa
 }
 
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/go/bin:~/go/bin
 
 #jjssh
 
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
