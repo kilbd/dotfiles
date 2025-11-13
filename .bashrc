@@ -119,7 +119,7 @@ fi
 . "$HOME/.cargo/env"
 
 # Add Go to PATH
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/.local/bin:/usr/local/go/bin
 
 ### My additions ###
 
@@ -127,4 +127,6 @@ export EDITOR="vi"
 
 alias ls="eza -la"
 alias cat="bat --paging=never"
+
+SSH_AUTH_SOCK=~/.1password/agent.sock
 
