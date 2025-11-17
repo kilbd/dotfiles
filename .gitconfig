@@ -1,0 +1,4 @@
+# Needed for Go to use SSH with private modules
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
+
