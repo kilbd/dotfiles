@@ -119,14 +119,20 @@ fi
 . "$HOME/.cargo/env"
 
 # Add Go to PATH
-export PATH=$PATH:$HOME/.local/bin:/usr/local/go/bin
+export PATH="$PATH:$HOME/.local/bin:/usr/local/go/bin"
+export PATH="$PATH:$(go env GOPATH)/bin"
 
 ### My additions ###
 
-export EDITOR="vi"
+export EDITOR="nvim"
 
 alias ls="eza -la"
 alias cat="bat --paging=never"
 
 SSH_AUTH_SOCK=~/.1password/agent.sock
+
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
